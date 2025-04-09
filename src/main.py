@@ -9,8 +9,9 @@ GENERATE_FROM_PATH = os.path.join(project_root, "content")
 GENERATE_TEMPLATE_PATH = os.path.join(project_root, "template.html")
 GENERATE_DEST_PATH = os.path.join(project_root, "docs")
 
-
+basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
 def main(): 
+    
     
     copy_content(ORIGIN_PATH, DEST_PATH)
     # Generate the page from the markdown file
