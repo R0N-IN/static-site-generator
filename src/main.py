@@ -1,16 +1,15 @@
 from create_page import *
 from node_processing_functions import *
 import sys
+import os
 
-ORIGIN_PATH = "/Users/mchavezguzman/Documents/workspace/github/personal/ssg/static" 
-DEST_PATH = "/Users/mchavezguzman/Documents/workspace/github/personal/ssg/docs"    
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ORIGIN_PATH = os.path.join(project_root, "static")
+DEST_PATH = os.path.join(project_root, "docs")
+GENERATE_FROM_PATH = os.path.join(project_root, "content")
+GENERATE_TEMPLATE_PATH = os.path.join(project_root, "template.html")
+GENERATE_DEST_PATH = os.path.join(project_root, "docs")
 
-##Create the page from the markdown file 
-##**Note: Add prompt to ask the user for the path of the markdown file and the template file.
-
-GENERATE_FROM_PATH = "/Users/mchavezguzman/Documents/workspace/github/personal/ssg/content"
-GENERATE_TEMPLATE_PATH = "/Users/mchavezguzman/Documents/workspace/github/personal/ssg/template.html"
-GENERATE_DEST_PATH = "/Users/mchavezguzman/Documents/workspace/github/personal/ssg/docs"
 
 def main(): 
     basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
