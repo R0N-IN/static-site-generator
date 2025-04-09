@@ -17,13 +17,9 @@ def extract_title(markdown):
  
     for line in markdown.split("\n"):
         if line.startswith("# "):
-            title = line[1:]
-            title = re.sub(r"^\s+|\s+$", "", title)
-            break
+            return line[2:]
     if title == "":
         raise Exception("No title found in the markdown")
-    
-    return title
 
 
 def generate_page(from_path, template_path, dest_path, basepath):
@@ -43,9 +39,8 @@ def generate_page(from_path, template_path, dest_path, basepath):
         
         page = template.replace("{{ Title }}", title)\
                .replace("{{ Content }}", html)\
-               .replace("{{ basepath }}", basepath)
-
-
+               .replace('href="/', f'href="{basepath}')\
+               .replace('src="/', f'src="{basepath}')
         
         with open(dest_path, "w", encoding="utf-8") as f:
             f.write(page)
