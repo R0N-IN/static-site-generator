@@ -26,7 +26,7 @@ def extract_title(markdown):
     return title
 
 
-def generate_page(from_path, template_path, dest_path):
+def generate_page(from_path, template_path, dest_path, basepath=None):
     print(f"Generating page from {from_path} to {dest_path}")
     print(f"Using template {template_path}")
     
@@ -50,7 +50,7 @@ def generate_page(from_path, template_path, dest_path):
         print(f"Error reading file: {e}")
         return
         
-def generate_page_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_page_recursive(dir_path_content, template_path, dest_dir_path, basepath=None):
     items = os.listdir(dir_path_content)
     for item in items:
         from_path = os.path.join(dir_path_content, item)
