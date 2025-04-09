@@ -1,3 +1,4 @@
+from enum import Enum
 from textnode import TextNode, TextType
 from leafnode import LeafNode
 from parentnode import ParentNode
