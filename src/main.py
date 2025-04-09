@@ -11,8 +11,7 @@ GENERATE_DEST_PATH = os.path.join(project_root, "docs")
 
 
 def main(): 
-    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
-
+    
     copy_content(ORIGIN_PATH, DEST_PATH)
     # Generate the page from the markdown file
     generate_page_recursive(GENERATE_FROM_PATH, GENERATE_TEMPLATE_PATH, GENERATE_DEST_PATH, basepath)
